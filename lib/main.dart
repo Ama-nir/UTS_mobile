@@ -14,7 +14,10 @@ class kantindonut extends StatelessWidget {
       debugShowCheckedModeBanner: false,
     title: 'Kantin Donut',
     theme: ThemeData(
-      primarySwatch: Colors.blue,
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
+      ),
     ),
     home: const daftar(),
   );
