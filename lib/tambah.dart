@@ -7,26 +7,26 @@ class tambah extends StatefulWidget {
   const tambah({super.key});
 
   @override
-  State<tambah> createState() => _tambahState();
+  State<tambah> createState() => tambahState();
 }
 
-class _tambahState extends State<tambah> {
-  final _kunci = GlobalKey<FormState>();
-  final _namaCtrl = TextEditingController();
-  final _hargaCtrl = TextEditingController();
+class tambahState extends State<tambah> {
+  final kunci = GlobalKey<FormState>();
+  final nama = TextEditingController();
+  final harga = TextEditingController();
  
   @override
   void dispose() {
-    _namaCtrl.dispose();
-    _hargaCtrl.dispose();
+    nama.dispose();
+    harga.dispose();
     super.dispose();
   }
 
-  void _simpan() {
-    if (_kunci.currentState!.validate()) {
+  void simpan() {
+    if (kunci.currentState!.validate()) {
       Get.back(result: {
-        'nama': _namaCtrl.text.trim(),
-        'harga': int.parse(_hargaCtrl.text),
+        'nama': nama.text.trim(),
+        'harga': int.parse(harga.text),
       });
     }
   }
@@ -36,16 +36,16 @@ class _tambahState extends State<tambah> {
     return Scaffold(
       appBar: AppBar(
         title: const text('Menu Kantin Donut', 
-        ukuran: 20, warna: Colors.white),
+        ukuran: 26, warna: Colors.white),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Form(
-          key: _kunci,
+          key: kunci,
           child: Column(
             children: [
               TextFormField(
-                controller: _namaCtrl,
+                controller: nama,
                 decoration: const InputDecoration(
                   labelText: 'Nama menu',
                   border: OutlineInputBorder(),
@@ -59,7 +59,7 @@ class _tambahState extends State<tambah> {
               ),
               const SizedBox(height: 20),
               TextFormField(
-                controller: _hargaCtrl,
+                controller: harga,
                 decoration: const InputDecoration(
                   labelText: 'Harga menu',
                   border: OutlineInputBorder(),
@@ -75,8 +75,8 @@ class _tambahState extends State<tambah> {
               ),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: _simpan,
-                child: const text('Masuk ke menu', ukuran: 16, warna: Colors.white),
+                onPressed: simpan,
+                child: const text('Masuk ke menu', warna: Colors.red),
               ),
             ],
           ),
