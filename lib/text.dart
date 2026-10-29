@@ -10,11 +10,11 @@ class text extends StatelessWidget {
   const text(
     this.teks, {
     super.key,
-    this.ukuran = 16,
+    this.ukuran = 20,
     this.tebal = FontWeight.normal,
-    this.warna = Colors.black87,
+    this.warna = Colors.black,
   });
-
+  
   @override
   Widget build(BuildContext context) {
     return Text(
