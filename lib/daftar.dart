@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:uts_pemweb/detail.dart';
+import 'detail.dart';
 
 import 'theme.dart';
 import 'text.dart';
-import 'daftar.dart';
 import 'tambah.dart';
 
 class daftar extends StatefulWidget {
@@ -37,7 +36,7 @@ class _daftarState extends State<daftar> {
     return Scaffold(
       appBar: AppBar(
         title: const text(
-          'Kantin Pojok',
+          'Menu Donut',
           ukuran: 26,
           tebal: FontWeight.w600,
           warna: Colors.white,
@@ -48,9 +47,8 @@ class _daftarState extends State<daftar> {
           const Padding(
             padding: EdgeInsets.all(16),
             child: text(
-              'Jajan apa hari ini?',
+              'Menu yang ada di hari ini',
               ukuran: 24,
-              warna: merah,
             ),
           ),
           Expanded(
@@ -71,10 +69,9 @@ class _daftarState extends State<daftar> {
                     title: text(item['nama'], ukuran: 22),
                     subtitle: text(
                       menuSpesial(harga)
-                          ? '${rupiah(harga)}  •  Spesial'
+                          ? '${rupiah(harga)}  •  Recommended'
                           : rupiah(harga),
-                      ukuran: 18,
-                      warna: Colors.brown,
+                      warna: Colors.red,
                     ),
                     trailing: const Icon(Icons.chevron_right),
                     onTap: () => Get.to(() => detail(
